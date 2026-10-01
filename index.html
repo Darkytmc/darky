@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,6 +7,7 @@
   <meta name="description" content="Darky — Fursona profile, socials, VRChat and gallery" />
   <title>Darky ♡</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="language.css" />
 </head>
 <body>
   <div class="star-field" aria-hidden="true"></div>
@@ -17,34 +18,40 @@
   <main class="site-shell">
     <section class="intro-card reveal">
       <div class="intro-copy">
-        <div class="mini-label">welcome to my little corner of the internet ♡</div>
-        <h1>hii, i’m <span>Darky</span> :3</h1>
-        <p class="lead">Feline / Kemono • Germany • VRChat • Fursuits • Furry Content</p>
-
-        <div class="tiny-tags">
-          <span>🐾 feline</span>
-          <span>💙 blue eyes</span>
-          <span>👓 silver glasses</span>
-          <span>🌙 night vibe</span>
+        <div class="language-switcher" aria-label="Language selector">
+          <button type="button" class="lang-btn" data-lang="de" title="Deutsch">🇩🇪 <span>DE</span></button>
+          <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 <span>EN</span></button>
+          <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 <span>RU</span></button>
         </div>
 
-        <nav class="pill-nav" aria-label="Seitennavigation">
-          <a href="#about">about me</a>
-          <a href="#links">socials</a>
-          <a href="#sona">my sona</a>
-          <a href="#gallery">gallery</a>
+        <div class="mini-label" data-i18n="welcome">welcome to my little corner of the internet ♡</div>
+        <h1 data-i18n-html="introTitle">hii, i’m <span>Darky</span> :3</h1>
+        <p class="lead" data-i18n="lead">Feline / Kemono • Germany • VRChat • Fursuits • Furry Content</p>
+
+        <div class="tiny-tags">
+          <span data-i18n="tagFeline">🐾 feline</span>
+          <span data-i18n="tagEyes">💙 blue eyes</span>
+          <span data-i18n="tagGlasses">👓 silver glasses</span>
+          <span data-i18n="tagNight">🌙 night vibe</span>
+        </div>
+
+        <nav class="pill-nav" aria-label="Page navigation">
+          <a href="#about" data-i18n="navAbout">about me</a>
+          <a href="#links" data-i18n="navSocials">socials</a>
+          <a href="#sona" data-i18n="navSona">my sona</a>
+          <a href="#gallery" data-i18n="navGallery">gallery</a>
         </nav>
 
         <div class="social-bubbles" aria-label="Social links">
           <a href="https://www.tiktok.com/@darkytfurr" target="_blank" rel="noreferrer" aria-label="TikTok">♪</a>
           <a href="https://www.instagram.com/darkytfurr/" target="_blank" rel="noreferrer" aria-label="Instagram">◎</a>
           <a href="https://web.barq.app/profiles/85e8fe52-e26d-4b0b-b670-9e13e250bfd0" target="_blank" rel="noreferrer" aria-label="BARQ">B</a>
-          <button class="bubble-button copy-card" data-copy="Darkytmc" aria-label="Discord kopieren">D</button>
+          <button class="bubble-button copy-card" data-copy="Darkytmc" aria-label="Copy Discord">D</button>
         </div>
       </div>
 
       <div class="intro-art">
-        <img src="darkybench.png" alt="Darky auf einer Bank" />
+        <img src="darkybench.png" alt="Darky sitting on a bench" />
         <div class="image-sticker sticker-one">darky.exe</div>
         <div class="image-sticker sticker-two">♡ meow</div>
       </div>
@@ -52,30 +59,20 @@
 
     <section class="content-grid" id="about">
       <article class="card about-card reveal">
-        <p class="section-kicker">about me</p>
-        <h2>a little bit about Darky</h2>
-        <p>
-          Hey! Ich bin Darky 💙 Meine Fursona ist eine schwarz-weiß-dunkelblaue Feline im Kemono-Style.
-          Auf der Seite findest du meine Socials, VRChat, BARQ und ein bisschen was über meinen Sona-Vibe.
-        </p>
-        <div class="quote-box">“black, white, dark blue & way too much VRChat”</div>
-
-        <p class="section-kicker" style="margin-top:22px;">languages</p>
-        <div class="tiny-tags" aria-label="Sprachen" style="margin-top:10px;">
-          <span>🇩🇪 Deutsch</span>
-          <span>🇬🇧 English</span>
-          <span>🇷🇺 Русский</span>
-        </div>
+        <p class="section-kicker" data-i18n="aboutKicker">about me</p>
+        <h2 data-i18n="aboutTitle">a little bit about Darky</h2>
+        <p data-i18n="aboutText">Hey! I’m Darky 💙 My fursona is a black, white and dark-blue feline in Kemono style. Here you can find my socials, VRChat, BARQ and a little bit about my sona vibe.</p>
+        <div class="quote-box" data-i18n="quote">“black, white, dark blue & way too much VRChat”</div>
       </article>
 
       <article class="card mini-profile reveal" data-delay="80">
         <div class="profile-icon">
-          <img src="darkymoon.png" alt="Darky vor dem Mond" />
+          <img src="darkymoon.png" alt="Darky in front of the moon" />
         </div>
         <div>
-          <p class="section-kicker">quick info</p>
+          <p class="section-kicker" data-i18n="quickInfo">quick info</p>
           <h2>Darky</h2>
-          <p class="soft">feline • kemono • germany</p>
+          <p class="soft" data-i18n="quickSub">feline • kemono • germany</p>
         </div>
       </article>
     </section>
@@ -83,8 +80,8 @@
     <section class="card links-card reveal" id="links">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">find me here</p>
-          <h2>socials & usernames</h2>
+          <p class="section-kicker" data-i18n="socialKicker">find me here</p>
+          <h2 data-i18n="socialTitle">socials & usernames</h2>
         </div>
         <span class="sparkle">♡</span>
       </div>
@@ -97,13 +94,13 @@
           <span class="link-icon">◎</span><span><strong>Instagram</strong><small>@darkytfurr</small></span><b>↗</b>
         </a>
         <button class="furry-link copy-card" data-copy="Darkytmc">
-          <span class="link-icon">VR</span><span><strong>VRChat</strong><small>Darkytmc</small></span><b class="copy-state">copy</b>
+          <span class="link-icon">VR</span><span><strong>VRChat</strong><small>Darkytmc</small></span><b class="copy-state" data-i18n="copy">copy</b>
         </button>
         <a class="furry-link" href="https://web.barq.app/profiles/85e8fe52-e26d-4b0b-b670-9e13e250bfd0" target="_blank" rel="noreferrer">
-          <span class="link-icon">B</span><span><strong>BARQ</strong><small>Darky’s profile</small></span><b>↗</b>
+          <span class="link-icon">B</span><span><strong>BARQ</strong><small data-i18n="barqProfile">Darky’s profile</small></span><b>↗</b>
         </a>
         <button class="furry-link copy-card" data-copy="Darkytmc">
-          <span class="link-icon">D</span><span><strong>Discord</strong><small>Darkytmc</small></span><b class="copy-state">copy</b>
+          <span class="link-icon">D</span><span><strong>Discord</strong><small>Darkytmc</small></span><b class="copy-state" data-i18n="copy">copy</b>
         </button>
       </div>
     </section>
@@ -111,19 +108,19 @@
     <section class="card sona-card reveal" id="sona">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">my sona</p>
-          <h2>Darky’s character info</h2>
+          <p class="section-kicker" data-i18n="sonaKicker">my sona</p>
+          <h2 data-i18n="sonaTitle">Darky’s character info</h2>
         </div>
         <span class="sparkle">✦</span>
       </div>
 
       <div class="fact-grid">
-        <div class="fact"><span>name</span><strong>Darky</strong></div>
-        <div class="fact"><span>species</span><strong>Feline</strong></div>
-        <div class="fact"><span>style</span><strong>Kemono</strong></div>
-        <div class="fact"><span>eyes</span><strong>Light Blue</strong></div>
-        <div class="fact"><span>palette</span><strong>Black / White / Dark Blue</strong></div>
-        <div class="fact"><span>accessory</span><strong>Silver Glasses</strong></div>
+        <div class="fact"><span data-i18n="factName">name</span><strong>Darky</strong></div>
+        <div class="fact"><span data-i18n="factSpecies">species</span><strong data-i18n="felineValue">Feline</strong></div>
+        <div class="fact"><span data-i18n="factStyle">style</span><strong>Kemono</strong></div>
+        <div class="fact"><span data-i18n="factEyes">eyes</span><strong data-i18n="lightBlue">Light Blue</strong></div>
+        <div class="fact"><span data-i18n="factPalette">palette</span><strong data-i18n="colors">Black / White / Dark Blue</strong></div>
+        <div class="fact"><span data-i18n="factAccessory">accessory</span><strong data-i18n="silverGlasses">Silver Glasses</strong></div>
       </div>
 
       <div class="palette-row" aria-label="Darky color palette">
@@ -131,27 +128,27 @@
         <span class="swatch swatch-white"></span>
         <span class="swatch swatch-blue"></span>
         <span class="swatch swatch-light"></span>
-        <small>Darky palette</small>
+        <small data-i18n="paletteLabel">Darky palette</small>
       </div>
     </section>
 
     <section class="gallery-section reveal" id="gallery">
       <div class="section-heading gallery-title">
         <div>
-          <p class="section-kicker">gallery</p>
-          <h2>some Darky pics ♡</h2>
+          <p class="section-kicker" data-i18n="galleryKicker">gallery</p>
+          <h2 data-i18n="galleryTitle">some Darky pics ♡</h2>
         </div>
-        <span class="soft">click to enlarge</span>
+        <span class="soft" data-i18n="enlarge">click to enlarge</span>
       </div>
 
       <div class="gallery-grid">
         <button class="photo-card photo-tall" data-lightbox="darkymoon.png">
-          <img src="darkymoon.png" alt="Darky vor einem großen blauen Mond" />
-          <span>moonlight ✦</span>
+          <img src="darkymoon.png" alt="Darky in front of a large blue moon" />
+          <span data-i18n="moonlight">moonlight ✦</span>
         </button>
         <button class="photo-card" data-lightbox="darkybench.png">
-          <img src="darkybench.png" alt="Darky sitzt auf einer Bank" />
-          <span>just being silly :3</span>
+          <img src="darkybench.png" alt="Darky sitting on a bench" />
+          <span data-i18n="silly">just being silly :3</span>
         </button>
       </div>
     </section>
@@ -159,19 +156,19 @@
     <section class="ending-card reveal">
       <img src="darkymoon.png" alt="Darky" />
       <div>
-        <p class="section-kicker">thanks for visiting</p>
-        <h2>see you around :3</h2>
-        <p class="soft">Darky • furry stuff • VRChat • chaos ♡</p>
+        <p class="section-kicker" data-i18n="thanks">thanks for visiting</p>
+        <h2 data-i18n="seeYou">see you around :3</h2>
+        <p class="soft" data-i18n="endingText">Darky • furry stuff • VRChat • chaos ♡</p>
       </div>
     </section>
 
-    <footer>made with ♡ for Darky • <span id="year"></span></footer>
+    <footer><span data-i18n="footerMade">made with ♡ for Darky</span> • <span id="year"></span></footer>
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" aria-label="Bild schließen">×</button>
+    <button class="lightbox-close" aria-label="Close image">×</button>
     <img id="lightbox-image" alt="Darky gallery image" />
   </div>
 
