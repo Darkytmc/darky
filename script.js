@@ -106,6 +106,73 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeLightbox();
 });
 
+// Soft mouse-follow glow for desktop
+if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
+  const glow = document.createElement('div');
+  glow.className = 'cursor-glow';
+  document.body.appendChild(glow);
+
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let currentX = targetX;
+  let currentY = targetY;
+
+  window.addEventListener('pointermove', (event) => {
+    targetX = event.clientX;
+    targetY = event.clientY;
+  });
+
+  const moveGlow = () => {
+    currentX += (targetX - currentX) * 0.12;
+    currentY += (targetY - currentY) * 0.12;
+    glow.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+    requestAnimationFrame(moveGlow);
+  };
+  moveGlow();
+}
+
+// Tiny furry-style click particles on interactive elements
+if (!reducedMotion) {
+  const particleTargets = document.querySelectorAll('.pill-nav a, .social-bubbles a, .bubble-button, .furry-link, .photo-card');
+  const particleChars = ['♡', '✦', '⋆', '🐾'];
+
+  particleTargets.forEach((target) => {
+    target.addEventListener('click', (event) => {
+      const rect = target.getBoundingClientRect();
+      const originX = event.clientX || rect.left + rect.width / 2;
+      const originY = event.clientY || rect.top + rect.height / 2;
+
+      for (let i = 0; i < 5; i += 1) {
+        const particle = document.createElement('span');
+        particle.className = 'click-particle';
+        particle.textContent = particleChars[Math.floor(Math.random() * particleChars.length)];
+        particle.style.left = `${originX}px`;
+        particle.style.top = `${originY}px`;
+        particle.style.setProperty('--x', `${(Math.random() - 0.5) * 80}px`);
+        particle.style.setProperty('--y', `${-30 - Math.random() * 55}px`);
+        particle.style.animationDelay = `${i * 25}ms`;
+        document.body.appendChild(particle);
+        window.setTimeout(() => particle.remove(), 900);
+      }
+    });
+  });
+}
+
+// Give small cards a little personality when the pointer moves over them
+if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
+  document.querySelectorAll('.fact, .furry-link').forEach((card) => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(700px) translateY(-2px) rotateX(${y * -2.5}deg) rotateY(${x * 3.5}deg)`;
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
 // Footer year
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
