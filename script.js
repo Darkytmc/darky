@@ -13,8 +13,8 @@ const translations = {
     navGallery: 'gallery',
     aboutKicker: 'about me',
     aboutTitle: 'About Darky',
-    aboutText: 'Hey, I’m Darky. I spend a lot of time in VRChat and I’m into fursuits, furry content and the community around it. This page is basically one place for my socials, my fursona and a few pictures.',
-    quote: 'VRChat • Fursuits • Furry Content',
+    aboutText: 'Hey, I’m Darky. I’m still fairly new to the furry community and I’m especially interested in fursuits, furry content and events. Outside of that I’m into cars, gaming, IT and tech. Here you’ll find my socials, info about my fursona and a few photos.',
+    quote: 'Cars • Gaming • Fursuits • IT & Tech',
     quickInfo: 'quick info',
     quickSub: 'feline • kemono • germany',
     socialKicker: 'socials',
@@ -60,8 +60,8 @@ const translations = {
     navGallery: 'galerie',
     aboutKicker: 'über mich',
     aboutTitle: 'Über Darky',
-    aboutText: 'Hey, ich bin Darky. Ich bin viel in VRChat unterwegs und interessiere mich für Fursuits, Furry-Content und die Community drum herum. Auf der Seite findest du meine Socials, meine Fursona und ein paar Bilder.',
-    quote: 'VRChat • Fursuits • Furry Content',
+    aboutText: 'Hey, ich bin Darky. Ich bin noch relativ neu in der Furry-Community und interessiere mich besonders für Fursuits, Furry-Content und Events. Daneben mag ich Autos, Gaming sowie IT und Technik. Hier findest du meine Socials, Infos zu meiner Fursona und ein paar Bilder.',
+    quote: 'Autos • Gaming • Fursuits • IT & Tech',
     quickInfo: 'kurzinfo',
     quickSub: 'feline • kemono • deutschland',
     socialKicker: 'socials',
@@ -107,8 +107,8 @@ const translations = {
     navGallery: 'галерея',
     aboutKicker: 'обо мне',
     aboutTitle: 'О Darky',
-    aboutText: 'Привет, я Darky. Я много времени провожу в VRChat и интересуюсь фурсьютами, фурри-контентом и сообществом. Здесь собраны мои соцсети, информация о моей фурсоне и несколько фотографий.',
-    quote: 'VRChat • Фурсьюты • Фурри-контент',
+    aboutText: 'Привет, я Darky. Я ещё относительно недавно в фурри-сообществе и особенно интересуюсь фурсьютами, фурри-контентом и мероприятиями. Кроме этого, мне нравятся автомобили, игры, IT и технологии. Здесь ты найдёшь мои соцсети, информацию о моей фурсоне и несколько фотографий.',
+    quote: 'Автомобили • Игры • Фурсьюты • IT и технологии',
     quickInfo: 'кратко',
     quickSub: 'фелин • кемоно • германия',
     socialKicker: 'соцсети',
@@ -188,7 +188,6 @@ applyLanguage(currentLanguage);
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Tiny animated night sky
 const starField = document.querySelector('.star-field');
 if (starField && !reducedMotion) {
   for (let i = 0; i < 70; i += 1) {
@@ -204,7 +203,6 @@ if (starField && !reducedMotion) {
   }
 }
 
-// Reveal sections as you scroll
 const reveals = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && !reducedMotion) {
   const observer = new IntersectionObserver((entries) => {
@@ -221,7 +219,6 @@ if ('IntersectionObserver' in window && !reducedMotion) {
   reveals.forEach((el) => el.classList.add('visible'));
 }
 
-// Copy VRChat / Discord usernames
 const toast = document.getElementById('toast');
 let toastTimer;
 function showToast(text) {
@@ -249,7 +246,6 @@ document.querySelectorAll('.copy-card').forEach((button) => {
   });
 });
 
-// Gallery lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 const closeButton = document.querySelector('.lightbox-close');
@@ -279,7 +275,6 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeLightbox();
 });
 
-// Soft mouse-follow glow for desktop
 if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
   const glow = document.createElement('div');
   glow.className = 'cursor-glow';
@@ -304,7 +299,6 @@ if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
   moveGlow();
 }
 
-// Tiny click particles on interactive elements
 if (!reducedMotion) {
   const particleTargets = document.querySelectorAll('.lang-btn, .pill-nav a, .social-bubbles a, .bubble-button, .furry-link, .photo-card');
   const particleChars = ['✦', '⋆', '•'];
@@ -331,7 +325,6 @@ if (!reducedMotion) {
   });
 }
 
-// Give small cards a little personality when the pointer moves over them
 if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
   document.querySelectorAll('.fact, .furry-link').forEach((card) => {
     card.addEventListener('pointermove', (event) => {
@@ -346,6 +339,5 @@ if (!reducedMotion && window.matchMedia('(pointer:fine)').matches) {
   });
 }
 
-// Footer year
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
