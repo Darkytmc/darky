@@ -22,6 +22,24 @@ const galleryCopy = {
   }
 };
 
+const galleryGrid = document.querySelector('.gallery-grid');
+
+const extraGalleryImages = [
+  { src: 'darkymoon2.png', label: 'Moon II', alt: 'Darky in VRChat under a blue moon' },
+  { src: 'darkymoon3.png', label: 'Moon III', alt: 'Darky in VRChat under a blue moon' }
+];
+
+extraGalleryImages.forEach((image) => {
+  if (!galleryGrid || galleryGrid.querySelector(`[data-lightbox="${image.src}"]`)) return;
+
+  const button = document.createElement('button');
+  button.className = 'photo-card gallery-item gallery-added';
+  button.dataset.category = 'vrchat';
+  button.dataset.lightbox = image.src;
+  button.innerHTML = `<img src="${image.src}" alt="${image.alt}" /><span>${image.label}</span>`;
+  galleryGrid.appendChild(button);
+});
+
 const galleryFilters = [...document.querySelectorAll('.gallery-filter')];
 const galleryItems = [...document.querySelectorAll('.gallery-item')];
 let activeGalleryCategory = 'all';
@@ -53,7 +71,6 @@ function updateGalleryCounts() {
     const badge = button.querySelector('.gallery-count');
     if (badge) badge.textContent = count;
 
-    // Empty categories stay hidden until there is actual content for them.
     button.hidden = category !== 'all' && count === 0;
   });
 
@@ -80,6 +97,19 @@ function filterGallery(category) {
 
 galleryFilters.forEach((button) => {
   button.addEventListener('click', () => filterGallery(button.dataset.filter || 'all'));
+});
+
+const galleryLightbox = document.getElementById('lightbox');
+const galleryLightboxImage = document.getElementById('lightbox-image');
+
+document.querySelectorAll('.gallery-added').forEach((button) => {
+  button.addEventListener('click', () => {
+    if (!galleryLightbox || !galleryLightboxImage) return;
+    galleryLightboxImage.src = button.dataset.lightbox || '';
+    galleryLightbox.classList.add('open');
+    galleryLightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
 });
 
 const languageObserver = new MutationObserver(() => {
