@@ -8,6 +8,7 @@
   <title>Darky</title>
   <link rel="stylesheet" href="styles.css?v=9" />
   <link rel="stylesheet" href="language.css?v=9" />
+  <link rel="stylesheet" href="gallery.css?v=1" />
 </head>
 <body>
   <div class="star-field" aria-hidden="true"></div>
@@ -151,15 +152,27 @@
         <span class="soft" data-i18n="enlarge">click to enlarge</span>
       </div>
 
+      <div class="gallery-filters" aria-label="Gallery categories">
+        <button class="gallery-filter active" type="button" data-filter="all" aria-pressed="true"><span class="gallery-filter-label">All</span><span class="gallery-count">0</span></button>
+        <button class="gallery-filter" type="button" data-filter="vrchat" aria-pressed="false"><span class="gallery-filter-label">VRChat</span><span class="gallery-count">0</span></button>
+        <button class="gallery-filter" type="button" data-filter="fursuit" aria-pressed="false"><span class="gallery-filter-label">Fursuit</span><span class="gallery-count">0</span></button>
+        <button class="gallery-filter" type="button" data-filter="art" aria-pressed="false"><span class="gallery-filter-label">Art &amp; Stickers</span><span class="gallery-count">0</span></button>
+        <button class="gallery-filter" type="button" data-filter="events" aria-pressed="false"><span class="gallery-filter-label">Events</span><span class="gallery-count">0</span></button>
+      </div>
+
       <div class="gallery-grid">
-        <button class="photo-card photo-tall" data-lightbox="darkymoon.png">
+        <button class="photo-card photo-tall gallery-item" data-category="vrchat" data-lightbox="darkymoon.png">
           <img src="darkymoon.png" alt="Darky in front of a large blue moon" />
           <span data-i18n="moonlight">Moon</span>
         </button>
-        <button class="photo-card" data-lightbox="darkybench.png">
+        <button class="photo-card gallery-item" data-category="vrchat" data-lightbox="darkybench.png">
           <img src="darkybench.png" alt="Darky sitting on a bench" />
           <span data-i18n="silly">Bench</span>
         </button>
+      </div>
+
+      <div class="gallery-empty" aria-live="polite">
+        <div><strong>Nothing here yet</strong><span>Photos for this category will show up here later.</span></div>
       </div>
     </section>
 
@@ -183,5 +196,6 @@
   </div>
 
   <script src="script.js?v=8"></script>
+  <script src="gallery.js?v=1"></script>
 </body>
 </html>
