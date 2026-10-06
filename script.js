@@ -42,7 +42,7 @@ const translations = {
     silly: 'Bench',
     thanks: 'that’s all for now',
     seeYou: 'Thanks for stopping by',
-    endingText: 'You can find me on TikTok, Instagram, VRChat, BARQ and Discord.',
+    endingText: 'You can find me on TikTok, Instagram, YouTube, VRChat, BARQ and Discord.',
     footerMade: 'Darky',
     username: 'Username'
   },
@@ -89,7 +89,7 @@ const translations = {
     silly: 'Bank',
     thanks: 'das war’s erstmal',
     seeYou: 'Danke fürs Vorbeischauen',
-    endingText: 'Du findest mich auf TikTok, Instagram, VRChat, BARQ und Discord.',
+    endingText: 'Du findest mich auf TikTok, Instagram, YouTube, VRChat, BARQ und Discord.',
     footerMade: 'Darky',
     username: 'Username'
   },
@@ -136,7 +136,7 @@ const translations = {
     silly: 'Скамейка',
     thanks: 'пока это всё',
     seeYou: 'Спасибо, что заглянул',
-    endingText: 'Меня можно найти в TikTok, Instagram, VRChat, BARQ и Discord.',
+    endingText: 'Меня можно найти в TikTok, Instagram, YouTube, VRChat, BARQ и Discord.',
     footerMade: 'Darky',
     username: 'Ник'
   }
