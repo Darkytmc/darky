@@ -237,3 +237,50 @@ footer{text-align:center;color:#6f809a;font-size:.76rem;padding:24px 0 0}
   .ending-card{grid-template-columns:1fr}
   .ending-card img{height:155px}
 }
+
+
+/* --- imprint / legal --- */
+.legal-card{
+  margin-top:18px;
+}
+.legal-card h2{
+  margin-top:6px;
+}
+.legal-address{
+  margin-top:18px;
+  padding:18px 20px;
+  border:1px solid rgba(145,194,255,.14);
+  border-radius:16px;
+  background:rgba(255,255,255,.025);
+  color:var(--muted);
+  font-style:normal;
+  line-height:1.75;
+}
+.legal-address strong{
+  color:var(--text);
+}
+footer a{
+  color:#8fa5c3;
+  text-decoration:none;
+  transition:color .18s ease;
+}
+footer a:hover{
+  color:var(--blue);
+}
+.footer-separator{
+  margin:0 4px;
+}
+
+@media(max-width:820px){
+  .legal-card{margin-top:12px}
+}
+@media(max-width:560px){
+  .legal-card{margin-top:10px}
+  .legal-address{
+    margin-top:14px;
+    padding:14px 15px;
+    border-radius:14px;
+    font-size:.88rem;
+    line-height:1.65;
+  }
+}
