@@ -44,6 +44,7 @@ const translations = {
     seeYou: 'Thanks for stopping by',
     endingText: 'You can find me on TikTok, Instagram, YouTube, VRChat, BARQ and Discord.',
     footerMade: 'Darky',
+    imprint: 'Legal notice',
     username: 'Username'
   },
   de: {
@@ -91,6 +92,7 @@ const translations = {
     seeYou: 'Danke fürs Vorbeischauen',
     endingText: 'Du findest mich auf TikTok, Instagram, YouTube, VRChat, BARQ und Discord.',
     footerMade: 'Darky',
+    imprint: 'Impressum',
     username: 'Username'
   },
   ru: {
@@ -138,6 +140,7 @@ const translations = {
     seeYou: 'Спасибо, что заглянул',
     endingText: 'Меня можно найти в TikTok, Instagram, YouTube, VRChat, BARQ и Discord.',
     footerMade: 'Darky',
+    imprint: 'Правовая информация',
     username: 'Ник'
   }
 };
