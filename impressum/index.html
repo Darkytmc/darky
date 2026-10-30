@@ -4,9 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#061124" />
-  <meta name="description" content="Impressum von Darkytfurr" />
+  <meta name="description" content="Impressum von Darkytfurr" id="page-description" />
   <title>Impressum • Darkytfurr</title>
   <link rel="stylesheet" href="../styles.css?v=10" />
+  <link rel="stylesheet" href="../language.css?v=9" />
 </head>
 <body>
   <div class="star-field" aria-hidden="true"></div>
@@ -16,8 +17,14 @@
 
   <main class="site-shell">
     <section class="card legal-card">
-      <p class="section-kicker">legal</p>
-      <h1 style="font-size:clamp(2.8rem,8vw,5rem);margin-top:8px;">Impressum</h1>
+      <div class="language-switcher" aria-label="Language selector">
+        <button type="button" class="lang-btn" data-lang="de" title="Deutsch">🇩🇪 <span>DE</span></button>
+        <button type="button" class="lang-btn" data-lang="en" title="English">🇬🇧 <span>EN</span></button>
+        <button type="button" class="lang-btn" data-lang="ru" title="Русский">🇷🇺 <span>RU</span></button>
+      </div>
+
+      <p class="section-kicker" data-i18n="legal">rechtliches</p>
+      <h1 data-i18n="title" style="font-size:clamp(2.8rem,8vw,5rem);margin-top:8px;">Impressum</h1>
 
       <address class="legal-address">
         <strong>Daniel Henneberg – Darkytfurr</strong><br />
@@ -27,15 +34,80 @@
       </address>
 
       <div class="pill-nav" style="margin-top:22px;">
-        <a href="/">← Zurück zu Darky</a>
+        <a href="/" data-i18n="back">← Zurück zu Darky</a>
       </div>
     </section>
 
     <footer>
       <a href="/">darky.live</a>
       <span class="footer-separator">•</span>
-      Impressum
+      <span data-i18n="footer">Impressum</span>
     </footer>
   </main>
+
+  <script>
+    const imprintTranslations = {
+      de: {
+        legal: 'rechtliches',
+        title: 'Impressum',
+        back: '← Zurück zu Darky',
+        footer: 'Impressum',
+        pageTitle: 'Impressum • Darkytfurr',
+        description: 'Impressum von Darkytfurr'
+      },
+      en: {
+        legal: 'legal',
+        title: 'Legal Notice',
+        back: '← Back to Darky',
+        footer: 'Legal notice',
+        pageTitle: 'Legal Notice • Darkytfurr',
+        description: 'Legal notice for Darkytfurr'
+      },
+      ru: {
+        legal: 'правовая информация',
+        title: 'Правовая информация',
+        back: '← Назад к Darky',
+        footer: 'Правовая информация',
+        pageTitle: 'Правовая информация • Darkytfurr',
+        description: 'Правовая информация Darkytfurr'
+      }
+    };
+
+    const supportedLanguages = ['de', 'en', 'ru'];
+    const savedLanguage = localStorage.getItem('darky-language');
+    const browserLanguage = (navigator.language || 'de').toLowerCase().split('-')[0];
+    const initialLanguage = supportedLanguages.includes(savedLanguage)
+      ? savedLanguage
+      : (supportedLanguages.includes(browserLanguage) ? browserLanguage : 'de');
+
+    function applyImprintLanguage(language) {
+      if (!supportedLanguages.includes(language)) return;
+      localStorage.setItem('darky-language', language);
+      document.documentElement.lang = language;
+
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.dataset.i18n;
+        if (imprintTranslations[language][key] !== undefined) {
+          element.textContent = imprintTranslations[language][key];
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach((button) => {
+        const active = button.dataset.lang === language;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+
+      document.title = imprintTranslations[language].pageTitle;
+      const description = document.getElementById('page-description');
+      if (description) description.setAttribute('content', imprintTranslations[language].description);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach((button) => {
+      button.addEventListener('click', () => applyImprintLanguage(button.dataset.lang));
+    });
+
+    applyImprintLanguage(initialLanguage);
+  </script>
 </body>
 </html>
